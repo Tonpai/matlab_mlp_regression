@@ -9,6 +9,9 @@ N = 100;
 x = linspace(0, 1, N)';
 t = x.^2 + unifrnd(-0.1, 0.1, N, 1);
 
+% x = [ones(size(x, 1),1) x];
+% t = [1 1 1 -1 -1 -1]
+
 feature_number = size(x,2);
 
 w_hidden_node_number = 10;
@@ -32,7 +35,7 @@ for i = 1:500
     
     % Backpropagation hidden layer
     delta_w_output = ((e .*(y_output.*(1-y_output))) .* [ones(size(y_hidden, 1), 1) y_hidden]);
-    delta_w_hidden = (delta_w_output_2(:, 2:end) .* ((1-y_hidden.^2)))' * [ones(size(x, 1), 1) x];
+    delta_w_hidden = (delta_w_output(:, 2:end) .* ((1-y_hidden.^2)))' * [ones(size(x, 1), 1) x];
     
     w_output = w_output + n * sum(delta_w_output)';
     w_hidden = w_hidden + n * delta_w_hidden';
