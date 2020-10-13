@@ -9,8 +9,8 @@ N = 100;
 x = linspace(0, 1, N)';
 t = x.^2 + unifrnd(-0.1, 0.1, N, 1);
 
-% x = [ones(size(x, 1),1) x];
-% t = [1 1 1 -1 -1 -1]
+x = [ones(size(x, 1),1) x];
+% t = [1 1 1 -1 -1 -1];
 
 feature_number = size(x,2);
 
