@@ -43,7 +43,7 @@ for i = 1:500
     E(i) = mse(e);
     
     subplot(2, 1, 1)
-    plot(x, t, '.b', x, logsig([ones(N, 1) tanh([ones(N, 1) x] * w_hidden)] * w_output), 'r');
+    plot(x(:, 2), t, '.b', x(:, 2), logsig([ones(N, 1) tanh([ones(N, 1) x] * w_hidden)] * w_output), 'r');
     title('Actual vs. Prediction');
     xlabel('x'); ylabel('y'); legend('Actual', 'Predicted');
     
